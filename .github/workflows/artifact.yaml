@@ -1,0 +1,27 @@
+
+name: Artifact test
+
+"on":
+  push:
+    branches: ["dev"]
+    tags: "*"
+
+env:
+  PROJECT_ID: open-targets-genetics-dev
+  REGION: europe-west1
+  GAR_LOCATION: europe-west1-docker.pkg.dev/open-targets-genetics-dev
+  REPOSITORY: gentropy-app
+
+jobs:
+  build-push-artifact:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Checkout"
+        uses: "actions/checkout@v3"
+      - name: "Run on push to dev"
+        run: "echo 'version: 0.0.0'"
+        if: github.ref == 'refs/heads/dev'
+      - name: "Run on push to tag"
+        if: startsWith(github.ref, 'refs/tags/v')
+        run: "echo $(git tag | head -1)"
+
