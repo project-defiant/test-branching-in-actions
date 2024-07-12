@@ -4,7 +4,7 @@ name: Artifact test
 "on":
   push:
     branches: ["dev"]
-    tags: "*"
+    tags: "v*"
 
 env:
   PROJECT_ID: open-targets-genetics-dev
