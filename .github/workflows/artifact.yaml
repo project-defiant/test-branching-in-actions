@@ -24,4 +24,6 @@ jobs:
       - name: "Run on push to tag"
         if: startsWith(github.ref, 'refs/tags/v')
         run: "echo $(git tag | head -1)"
+      - name: "Print name"
+        run: "echo ${{ github.ref_name }}"
 
