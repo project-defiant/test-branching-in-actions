@@ -2,11 +2,14 @@ name: Release
 
 on:
   push: 
-    branches: ["dev"]
+    branches: ["main"]
 
 jobs:
   release:
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: write
     steps:
       - name: "checkout"
         uses: "actions/checkout@v3"
