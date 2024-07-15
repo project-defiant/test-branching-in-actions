@@ -7,7 +7,7 @@ on:
 jobs:
   release:
     runs-on: ubuntu-latest
-    stesp:
+    steps:
       - name: "checkout"
         uses: "actions/checkout@v3"
       - name: Python Semantic Release
