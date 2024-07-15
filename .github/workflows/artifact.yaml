@@ -4,7 +4,7 @@ name: Artifact test
 "on":
   push:
     branches: ["dev"]
-    tags: "v*"
+    tags: ["v*"]
 
 env:
   PROJECT_ID: open-targets-genetics-dev
@@ -26,4 +26,3 @@ jobs:
         run: "echo $(git tag | head -1)"
       - name: "Print name"
         run: "echo ${{ github.ref_name }}"
-
